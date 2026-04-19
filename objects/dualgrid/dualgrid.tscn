@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dy5lcmxpskrx2"]
+
+[ext_resource type="Texture2D" uid="uid://cj3u3i0sg5bkc" path="res://assets/tilesets/base_tile.png" id="1_l5fq5"]
+[ext_resource type="Script" uid="uid://de0w4h8stq8ch" path="res://objects/dualgrid/dualgrid.gd" id="1_ufsyj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe2dj"]
+texture = ExtResource("1_l5fq5")
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lrld1"]
+sources/0 = SubResource("TileSetAtlasSource_pe2dj")
+
+[node name="DualGrid" type="TileMapLayer" unique_id=301644814]
+self_modulate = Color(1, 1, 1, 0)
+tile_set = SubResource("TileSet_lrld1")
+script = ExtResource("1_ufsyj")
+
+[node name="DisplayLayer" type="TileMapLayer" parent="." unique_id=1450559960]
+position = Vector2(-8, -8)
