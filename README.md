@@ -44,7 +44,7 @@ There is a zipped build of the game you can try in the builds folder. Controls a
 
 ## License
 
-This project uses multiple licenses. See [COPYING](./COPYING) for details.
+This project uses multiple licenses. See [COPYING](./COPYING.md) for details.
 
 - **Code**: MIT License
 - **Animations**: Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)
