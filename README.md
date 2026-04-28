@@ -24,11 +24,11 @@ Using what I call "TOP" and "BOT" variants of a minimal 15-tile tileset, you can
 
 *"TOP" tileset examples: Grass and Sand*
 
-![exampleA_top](./assets/tilesets/1_air_grass.png) ![exampleB_top](./assets/tilesets/2_air_sand.png)
+![exampleA_top](./assets/tilesets/flat/1_air_grass.png) ![exampleB_top](./assets/tilesets/flat/2_air_sand.png)
 
 *"BOT" tileset example: Water*
 
-![exampleC_bot](./assets/tilesets/3_water_air.png)
+![exampleC_bot](./assets/tilesets/flat/3_water_air.png)
 
 ## Purpose
 
