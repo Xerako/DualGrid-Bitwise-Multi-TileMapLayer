@@ -3,9 +3,11 @@
 A multi-layered dual-grid system using a stack of TileMapLayer nodes with auto-tiling done via efficient bitwise tile-atlas indexing.
 
 *Tall Terrain:*
+
 ![dgs_tall_demo](./animations/dgs_tall_demo.gif)
 
 *Flat Terrain:*
+
 ![dgs_demo](./animations/dgs_demo.gif)
 
 ## Updates
@@ -19,34 +21,41 @@ This is a demonstration of how I operate on a "Dual-Grid System" (proposed by Os
 My implementation uses a bitwise tile-atlas index and a cached static lookup array indexed by "bitwise neighborhoods" to quickly auto-tile display tiles.
 
 *Visualization of generating the tile-atlas lookup array:*
+
 ![bitwise_tileatlas_generation](./animations/bitwise_tileatlas_generation.gif)
 
 This works by leveraging the fact that any given world tile on a dual-grid has exactly 3 tile neighbors, resulting in 16 possible connected tile neighbor configurations if you include the world tile performing the query. Using a 4-bit unsigned integer, we can flag any populated cell on a layer by flipping a bit then shifting those bits in accordance with an ordered neighborhood walk (i.e. always checking tile neighbors in a specific order).
 
 *Visualization of looking up a tile using the tile-atlas lookup array:*
+
 ![bitwise_tileatlas_index](./animations/bitwise_tileatlas_index.gif)
 
 Using what I call "TOP" and "BOT" variants of a minimal 15-tile tileset, you can stack any number of tilemaps on top of each other and achieve this effect so long as the bottom-most tilemap is a "BOT" tileset (drawn as the inverse of a standard 15-tile minimal tileset). In this demonstration, the bottom of the stack is represented by Water tiles.
 
 *"TOP" tileset examples: Grass and Sand*
+
 ![exampleA_top](./assets/tilesets/flat/1_air_grass.png) ![exampleB_top](./assets/tilesets/flat/2_air_sand.png)
 
 *"BOT" tileset example: Water*
+
 ![exampleC_bot](./assets/tilesets/flat/3_water_air.png)
 
 In order to achieve tall tiles, Godot supports the idea of layering non-square atlas cell textures over a uniform square grid.
 
 *Square grid setting:*
+
 ![exampleA_tileset](./animations/v2_tileset_0.gif)
 
 You can adjust the origin of any cell in the TileSet docker tab alongside adjusting for any YSort offset.
 
 *TileSet docker tab:*
+
 ![exampleB_tileset](./animations/v2_tileset_1.gif)
 
 For physics collisions (and light occlusion by extension), you can set up a basic square collider on the "world" TileMapLayer (not the "display" layer). Because the world cells align with the uniform square grid, we can leverage them for optimal physics and light interactions. These cells essentially act as the "base" of any flat or tall tile, which themselves are rendered by 4 display tiles.
 
 *Physics setup:*
+
 ![exampleC_tileset](./animations/v2_tileset_2.gif)
 
 Godot is very good at merging colliders in a TileMapLayer, so maintaining the square geometry results in a very low geometry mesh across the connected tiles. If you want more precise physics, you can move the physics layer to the display TileSet and draw your colliders to your liking.
