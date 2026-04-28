@@ -7,8 +7,14 @@ extends Node2D
 ## Display mouse map position and hovered tile type.
 @onready var mouse_label: Label = $Mouse/MarginContainer/VBoxContainer/MarginContainer/MouseLabel
 
-## Ref to our DualGrid stack.
-@onready var dgs: DualGridStack = $DualGridStack
+## Ref to the DemoLoader responsible for handling which DualGridStack demo
+## is actively loaded.
+@onready var demo_loader: DemoLoader = $DemoLoader
+
+## Ref to our DualGrid stack through the demo loader.
+var dgs: DualGridStack:
+	get:
+		return demo_loader.dgs
 
 ## Color for the drawn rect at the mouse's hovered cell.
 var hover_color: Color = Color.WHITE

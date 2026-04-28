@@ -3,6 +3,10 @@ extends Node2D
 ## DualGridStack manages the data stack containing the layered DualGrid
 ## objects.
 
+## If [code]true[/code], empty space will [b]not[/b] be displayed using the 
+## bottom-most layer's [code]0000b[/code] atlas cell.
+@export var force_empty: bool = false
+
 ## Stack of DualGrid objects, each comprised of 
 ## two TileMapLayer nodes (world vs display).
 var layer_stack: Array[DualGrid] = []
@@ -76,10 +80,11 @@ func _ready() -> void:
 		layer_stack.push_front(layer)
 		
 		# perform our non-empty-space pass on the bottom-most layer of the stack
-		if layer_stack.size() == 1:
-			for x in range(-20, 20):
-				for y in range(-11, 11):
-					layer.update_display_cells(Vector2i(x, y))
+		if !force_empty:
+			if layer_stack.size() == 1:
+				for x in range(-20, 20):
+					for y in range(-11, 11):
+						layer.update_display_cells(Vector2i(x, y))
 	
 	# assert that we've populated the stack
 	assert(!layer_stack.is_empty(), "DualGridStack is empty.")

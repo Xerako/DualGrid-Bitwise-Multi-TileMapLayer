@@ -1,99 +1,19 @@
 [gd_scene format=3 uid="uid://cqx4eo8c88i1s"]
 
 [ext_resource type="Script" uid="uid://bbr0hfnsvgqfb" path="res://objects/game/game.gd" id="1_7h61r"]
-[ext_resource type="PackedScene" uid="uid://dy5lcmxpskrx2" path="res://objects/dualgrid/dualgrid.tscn" id="1_sul5r"]
-[ext_resource type="Script" uid="uid://ccs3jh728eam" path="res://objects/dualgrid/dualgrid_stack.gd" id="2_lfrn8"]
-[ext_resource type="Texture2D" uid="uid://c7rsebqhtux0k" path="res://assets/tilesets/1_air_grass.png" id="3_0sr1o"]
-[ext_resource type="Texture2D" uid="uid://8rmuo05o0npq" path="res://assets/tilesets/3_water_air.png" id="4_kelw5"]
-[ext_resource type="Texture2D" uid="uid://beefdyhs7dphk" path="res://assets/tilesets/2_air_sand.png" id="6_87uf6"]
+[ext_resource type="Script" uid="uid://b3t2ohfqqbvx3" path="res://objects/demos/demo_loader.gd" id="2_icv08"]
+[ext_resource type="PackedScene" uid="uid://ysx0ma7deo87" path="res://objects/demos/tall/demo_tall_dual_grid_stack.tscn" id="3_icv08"]
 [ext_resource type="Theme" uid="uid://urghxwv4xtwd" path="res://assets/fonts/monogram.tres" id="7_67e0g"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfrn8"]
-texture = ExtResource("4_kelw5")
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-2:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_5i0tg"]
-sources/0 = SubResource("TileSetAtlasSource_lfrn8")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kp23o"]
-texture = ExtResource("6_87uf6")
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_5jirj"]
-sources/0 = SubResource("TileSetAtlasSource_kp23o")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdhmt"]
-texture = ExtResource("3_0sr1o")
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_87uf6"]
-sources/0 = SubResource("TileSetAtlasSource_bdhmt")
 
 [node name="Game" type="Node2D" unique_id=1857020911]
 script = ExtResource("1_7h61r")
 
+[node name="DemoLoader" type="Node2D" parent="." unique_id=1280054074]
+script = ExtResource("2_icv08")
+
+[node name="DemoTall" parent="DemoLoader" unique_id=969032786 instance=ExtResource("3_icv08")]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1623893627]
-
-[node name="DualGridStack" type="Node2D" parent="." unique_id=1905374630]
-z_index = -1
-script = ExtResource("2_lfrn8")
-
-[node name="Water" parent="DualGridStack" unique_id=2094500548 instance=ExtResource("1_sul5r")]
-display_tileset = SubResource("TileSet_5i0tg")
-
-[node name="Sand" parent="DualGridStack" unique_id=1205963805 instance=ExtResource("1_sul5r")]
-display_tileset = SubResource("TileSet_5jirj")
-
-[node name="Grass" parent="DualGridStack" unique_id=1839837849 instance=ExtResource("1_sul5r")]
-display_tileset = SubResource("TileSet_87uf6")
 
 [node name="Mouse" type="Control" parent="." unique_id=631474985]
 layout_mode = 3
@@ -156,3 +76,37 @@ text = "Controls:
 [LMB] - Add Tile
 [RMB] - Remove Tile
 [ESC] - Close Game"
+
+[node name="Label" type="Label" parent="Controls/MarginContainer/VBoxContainer" unique_id=2052054882]
+layout_mode = 2
+text = "Click to Load Demo"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/MarginContainer/VBoxContainer" unique_id=1354504203]
+layout_mode = 2
+alignment = 1
+
+[node name="FlatMarginContainer" type="MarginContainer" parent="Controls/MarginContainer/VBoxContainer/HBoxContainer" unique_id=652177779]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="LoadFlat" type="Button" parent="Controls/MarginContainer/VBoxContainer/HBoxContainer/FlatMarginContainer" unique_id=1512746035]
+layout_mode = 2
+focus_mode = 0
+text = "Flat"
+
+[node name="TallMarginContainer" type="MarginContainer" parent="Controls/MarginContainer/VBoxContainer/HBoxContainer" unique_id=167205592]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="LoadTall" type="Button" parent="Controls/MarginContainer/VBoxContainer/HBoxContainer/TallMarginContainer" unique_id=1818818950]
+layout_mode = 2
+focus_mode = 0
+text = "Tall"
+
+[connection signal="pressed" from="Controls/MarginContainer/VBoxContainer/HBoxContainer/FlatMarginContainer/LoadFlat" to="DemoLoader" method="_on_load_flat_pressed"]
+[connection signal="pressed" from="Controls/MarginContainer/VBoxContainer/HBoxContainer/TallMarginContainer/LoadTall" to="DemoLoader" method="_on_load_tall_pressed"]

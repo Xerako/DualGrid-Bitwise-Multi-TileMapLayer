@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://biljx54ujcjx0"]
+
+[ext_resource type="Script" uid="uid://ccs3jh728eam" path="res://objects/dualgrid/dualgrid_stack.gd" id="1_7ylxu"]
+[ext_resource type="Script" uid="uid://dkb7cev6068h5" path="res://objects/demos/flat/demo_flat_dual_grid_stack.gd" id="1_xdrny"]
+[ext_resource type="PackedScene" uid="uid://dy5lcmxpskrx2" path="res://objects/dualgrid/dualgrid.tscn" id="2_4pm5i"]
+[ext_resource type="Texture2D" uid="uid://8rmuo05o0npq" path="res://assets/tilesets/flat/3_water_air.png" id="3_aokl0"]
+[ext_resource type="Texture2D" uid="uid://beefdyhs7dphk" path="res://assets/tilesets/flat/2_air_sand.png" id="4_7dhth"]
+[ext_resource type="Texture2D" uid="uid://c7rsebqhtux0k" path="res://assets/tilesets/flat/1_air_grass.png" id="5_hfedn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfrn8"]
+texture = ExtResource("3_aokl0")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5i0tg"]
+sources/0 = SubResource("TileSetAtlasSource_lfrn8")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kp23o"]
+texture = ExtResource("4_7dhth")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5jirj"]
+sources/0 = SubResource("TileSetAtlasSource_kp23o")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdhmt"]
+texture = ExtResource("5_hfedn")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_87uf6"]
+sources/0 = SubResource("TileSetAtlasSource_bdhmt")
+
+[node name="DemoFlat" type="Node2D" unique_id=1965101788]
+script = ExtResource("1_xdrny")
+
+[node name="DualGridStack" type="Node2D" parent="." unique_id=958145122]
+script = ExtResource("1_7ylxu")
+
+[node name="Water" parent="DualGridStack" unique_id=301644814 instance=ExtResource("2_4pm5i")]
+z_index = -1
+display_tileset = SubResource("TileSet_5i0tg")
+
+[node name="Sand" parent="DualGridStack" unique_id=477239513 instance=ExtResource("2_4pm5i")]
+z_index = -1
+display_tileset = SubResource("TileSet_5jirj")
+
+[node name="Grass" parent="DualGridStack" unique_id=1059699197 instance=ExtResource("2_4pm5i")]
+z_index = -1
+display_tileset = SubResource("TileSet_87uf6")

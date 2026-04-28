@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy5lcmxpskrx2"]
 
-[ext_resource type="Texture2D" uid="uid://cj3u3i0sg5bkc" path="res://assets/tilesets/base_tile.png" id="1_l5fq5"]
+[ext_resource type="Texture2D" uid="uid://cj3u3i0sg5bkc" path="res://assets/tilesets/base/base_tile.png" id="1_l5fq5"]
 [ext_resource type="Script" uid="uid://de0w4h8stq8ch" path="res://objects/dualgrid/dualgrid.gd" id="1_ufsyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe2dj"]

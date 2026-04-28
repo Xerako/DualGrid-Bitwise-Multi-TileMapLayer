@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://ysx0ma7deo87"]
+
+[ext_resource type="Script" uid="uid://cn8wxfil4i7qk" path="res://objects/demos/tall/demo_tall_dual_grid_stack.gd" id="1_hwoc7"]
+[ext_resource type="Script" uid="uid://ccs3jh728eam" path="res://objects/dualgrid/dualgrid_stack.gd" id="2_f7w5g"]
+[ext_resource type="PackedScene" uid="uid://dy5lcmxpskrx2" path="res://objects/dualgrid/dualgrid.tscn" id="3_pns0t"]
+[ext_resource type="Texture2D" uid="uid://d3b63adfb58pr" path="res://assets/tilesets/tall/4_water_air.png" id="4_f7w5g"]
+[ext_resource type="Texture2D" uid="uid://cx1yto76hccod" path="res://assets/tilesets/tall/3_air_sand.png" id="5_pns0t"]
+[ext_resource type="Texture2D" uid="uid://c7rsebqhtux0k" path="res://assets/tilesets/flat/1_air_grass.png" id="6_5v23h"]
+[ext_resource type="Texture2D" uid="uid://c7283x2mpwncf" path="res://assets/tilesets/tall/1_air_grass.png" id="6_wssy1"]
+[ext_resource type="PackedScene" uid="uid://dugydn6ue44eh" path="res://objects/player/player.tscn" id="7_f7w5g"]
+[ext_resource type="Texture2D" uid="uid://cj3u3i0sg5bkc" path="res://assets/tilesets/base/base_tile.png" id="7_pns0t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfrn8"]
+texture = ExtResource("4_f7w5g")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5i0tg"]
+sources/0 = SubResource("TileSetAtlasSource_lfrn8")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kp23o"]
+texture = ExtResource("5_pns0t")
+texture_region_size = Vector2i(16, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, -8)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, -8)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, -8)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, -8)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, -8)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, -8)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, -8)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, -8)
+1:3/0 = 0
+1:3/0/texture_origin = Vector2i(0, -8)
+2:3/0 = 0
+2:3/0/texture_origin = Vector2i(0, -8)
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(0, -8)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(0, -8)
+
+[sub_resource type="TileSet" id="TileSet_5jirj"]
+sources/0 = SubResource("TileSetAtlasSource_kp23o")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nt5gi"]
+texture = ExtResource("6_5v23h")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5v23h"]
+sources/0 = SubResource("TileSetAtlasSource_nt5gi")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wssy1"]
+texture = ExtResource("7_pns0t")
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+
+[sub_resource type="TileSet" id="TileSet_nt5gi"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_wssy1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdhmt"]
+texture = ExtResource("6_wssy1")
+texture_region_size = Vector2i(16, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/y_sort_origin = 16
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 8)
+1:0/0/y_sort_origin = 16
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 8)
+2:0/0/y_sort_origin = 16
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 8)
+3:0/0/y_sort_origin = 16
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 8)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 8)
+1:1/0/y_sort_origin = 16
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, 8)
+2:1/0/y_sort_origin = 16
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 8)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 8)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 8)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, 8)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, 8)
+3:2/0/y_sort_origin = 16
+1:3/0 = 0
+1:3/0/texture_origin = Vector2i(0, 8)
+1:3/0/y_sort_origin = 16
+2:3/0 = 0
+2:3/0/texture_origin = Vector2i(0, 8)
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(0, 8)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSet" id="TileSet_87uf6"]
+sources/0 = SubResource("TileSetAtlasSource_bdhmt")
+
+[node name="DemoTall" type="Node2D" unique_id=969032786]
+script = ExtResource("1_hwoc7")
+
+[node name="BG" type="CanvasLayer" parent="." unique_id=1097263771]
+layer = -2
+
+[node name="BGColor" type="ColorRect" parent="BG" unique_id=1541859608]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47843137, 0.72156864, 0.7647059, 1)
+
+[node name="YSort" type="Node2D" parent="." unique_id=43210544]
+y_sort_enabled = true
+
+[node name="DualGridStack" type="Node2D" parent="YSort" unique_id=958145122]
+y_sort_enabled = true
+script = ExtResource("2_f7w5g")
+force_empty = true
+
+[node name="Water" parent="YSort/DualGridStack" unique_id=301644814 instance=ExtResource("3_pns0t")]
+z_index = -1
+display_tileset = SubResource("TileSet_5i0tg")
+
+[node name="Sand" parent="YSort/DualGridStack" unique_id=477239513 instance=ExtResource("3_pns0t")]
+z_index = -2
+display_tileset = SubResource("TileSet_5jirj")
+
+[node name="Grass" parent="YSort/DualGridStack" unique_id=1059699197 instance=ExtResource("3_pns0t")]
+z_index = -1
+display_tileset = SubResource("TileSet_5v23h")
+
+[node name="GrassTall" parent="YSort/DualGridStack" unique_id=639420808 instance=ExtResource("3_pns0t")]
+tile_set = SubResource("TileSet_nt5gi")
+display_tileset = SubResource("TileSet_87uf6")
+enable_y_sort = true
+
+[node name="Player" parent="YSort" unique_id=211967332 instance=ExtResource("7_f7w5g")]

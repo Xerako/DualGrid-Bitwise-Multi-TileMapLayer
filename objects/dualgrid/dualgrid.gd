@@ -14,11 +14,17 @@ extends TileMapLayer
 ## TileSet to render for this tile type.
 @export var display_tileset: TileSet
 
+## If [code]true[/code], YSort will be enable for both the world and display
+## layers.
+@export var enable_y_sort: bool = false
+
 ## Ref to DisplayLayer (the dual).
 @onready var display: TileMapLayer = $DisplayLayer
 
 func _ready() -> void:
 	display.tile_set = display_tileset
+	y_sort_enabled = enable_y_sort
+	display.y_sort_enabled = enable_y_sort
 
 ## Erase cell data at the xy map location and update the dual.
 func erase_world_cell(xy: Vector2i) -> void:
