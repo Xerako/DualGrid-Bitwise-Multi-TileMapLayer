@@ -76,10 +76,10 @@ There is a zipped build of the game you can try in the builds folder, or you can
 
 This project uses multiple licenses. See [COPYING](./COPYING.md) for details.
 
-- **Code**: MIT License
+- **Code** and **Game Assets**: MIT License
 - **Animations**: Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)
 
-All source code is licensed under the **MIT License**. It's up to you if you want to attribute me (Xerako), but you're otherwise free to yoink the code and use it for your own purposes.
+All source code and [game assets](./assets) are licensed under the **MIT License**. It's up to you if you want to attribute me (Xerako), but you're otherwise free to yoink the code and game assets and use them for your own purposes. If an asset has a `credits.txt`, that is a link back to its original creator so please give credit to those awesome people.
 
 All animation files in [animations](./animations) are licensed under **CC BY-ND 4.0**.
 
