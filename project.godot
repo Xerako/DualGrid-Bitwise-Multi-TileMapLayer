@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="DualGrid Bitwise Multi TileMapLayer"
 config/description="A multi-layered dual-grid system using a stack of TileMapLayer nodes with auto-tiling done via efficient bitwise tile-atlas indexing."
-config/version="2.0.0.0"
+config/version="2.0.0.1"
 run/main_scene="uid://cqx4eo8c88i1s"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
